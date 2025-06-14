@@ -238,7 +238,7 @@ const CleanPro: React.FC<PluginContext> = ({ intl, vm, workspace, registerSettin
               key: "showCleanHeadlessBlocksMenu",
               label: msg("plugins.cleanPro.showCleanHeadlessBlocksMenu"),
               type: "switch",
-              value: showCleanHeadlessBlocksMenu,
+              value: false,
               description: msg("plugins.cleanPro.showCleanHeadlessBlocksMenuDesc"),
               onChange: (value: PluginSettingValueType) => setShowCleanHeadlessBlocksMenu(value as boolean),
             },
@@ -246,7 +246,7 @@ const CleanPro: React.FC<PluginContext> = ({ intl, vm, workspace, registerSettin
               key: "showCleanUnusedVariablesMenu",
               label: msg("plugins.cleanPro.showCleanUnusedVariablesMenu"),
               type: "switch",
-              value: showCleanUnusedVariablesMenu,
+              value: false,
               description: msg("plugins.cleanPro.showCleanUnusedVariablesMenuDesc"),
               onChange: (value: PluginSettingValueType) => setShowCleanUnusedVariablesMenu(value as boolean),
             },
@@ -254,7 +254,7 @@ const CleanPro: React.FC<PluginContext> = ({ intl, vm, workspace, registerSettin
               key: "showCleanAllMenu",
               label: msg("plugins.cleanPro.showCleanAllMenu"),
               type: "switch",
-              value: showCleanAllMenu,
+              value: true,
               description: msg("plugins.cleanPro.showCleanAllMenuDesc"),
               onChange: (value: PluginSettingValueType) => setShowCleanAllMenu(value as boolean),
             },
@@ -262,7 +262,7 @@ const CleanPro: React.FC<PluginContext> = ({ intl, vm, workspace, registerSettin
               key: "showCleanWholeProjectMenu",
               label: msg("plugins.cleanPro.showCleanWholeProjectMenu"),
               type: "switch",
-              value: showCleanWholeProjectMenu,
+              value: true,
               description: msg("plugins.cleanPro.showCleanWholeProjectMenuDesc"),
               onChange: (value: PluginSettingValueType) => setShowCleanWholeProjectMenu(value as boolean),
             },
@@ -287,7 +287,7 @@ const CleanPro: React.FC<PluginContext> = ({ intl, vm, workspace, registerSettin
     showCleanWholeProjectMenu,
   ]);
 
-  return <React.Fragment>{"Clean Pro Plugin"}</React.Fragment>;
+  return null;
 };
 
 CleanPro.displayName = "CleanPro";
