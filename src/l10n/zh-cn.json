@@ -292,5 +292,8 @@
   "plugins.cleanPro.showCleanUnusedVariablesMenu": "启用\"清理未使用变量\"右键菜单",
   "plugins.cleanPro.showCleanUnusedVariablesMenuDesc": "在右键菜单中显示清理未使用变量的选项",
   "plugins.cleanPro.showCleanAllMenu": "启用\"清理未使用积木和变量\"右键菜单",
-  "plugins.cleanPro.showCleanAllMenuDesc": "整合了插件全部功能，建议仅开启此项。分点启用仅适用于需要保留测试积木或测试变量的用户。"
+  "plugins.cleanPro.showCleanAllMenuDesc": "整合了插件全部功能，建议仅开启此项。分点启用仅适用于需要保留测试积木或测试变量的用户。",
+  "plugins.cleanPro.showCleanWholeProjectMenu": "启用\"清理整个工程未使用积木和变量\"右键菜单",
+  "plugins.cleanPro.showCleanWholeProjectMenuDesc": "此功能将清理所有角色中的未使用积木和变量，包括舞台",
+  "plugins.cleanPro.cleanWholeProject": "清理整个工程未使用积木和变量"
 }

@@ -291,5 +291,8 @@
   "plugins.cleanPro.showCleanUnusedVariablesMenu": "Enable \"Delete Unused Variables\" context menu",
   "plugins.cleanPro.showCleanUnusedVariablesMenuDesc": "Display the option to Delete unused variables in the context menu",
   "plugins.cleanPro.showCleanAllMenu": "Enable \"Delete Unused Blocks and Variables\" context menu",
-  "plugins.cleanPro.showCleanAllMenuDesc": "Integrates all plugin functionality. It is recommended to enable only this option. Enabling separate options is only for users who need to keep test blocks or variables."
+  "plugins.cleanPro.showCleanAllMenuDesc": "Integrates all plugin functionality. It is recommended to enable only this option. Enabling separate options is only for users who need to keep test blocks or variables.",
+  "plugins.cleanPro.showCleanWholeProjectMenu": "Enable \"Clean Whole Project\" context menu",
+  "plugins.cleanPro.showCleanWholeProjectMenuDesc": "This function will clean up unused blocks and variables in all sprites, including the Stage",
+  "plugins.cleanPro.cleanWholeProject": "Clean Whole Project (Unused Blocks and Variables)"
 }
