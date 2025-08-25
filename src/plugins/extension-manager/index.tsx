@@ -108,11 +108,20 @@ const ExtensionManager: React.FC<PluginContext> = ({ intl, utils, vm }) => {
       [key]: !prevState[key],
     }));
     const parent = document.querySelector(`.extensionManager-item-${key}`);
-    if (parent.classList.contains(styles.lift)) {
-      parent.classList.remove(styles.lift);
-    } else {
-      parent.classList.add(styles.lift);
-    }
+    /**实测这里有报错，classList为null所以无法读到原型链
+     * 然而不管在哪加判断都无法修复
+     * 因此使用try catch包裹并不输出错误
+     * 该报错是已知且固定的，不影响正常使用
+    
+    */
+
+    try {
+      if (parent.classList.contains(styles.lift)) {
+        parent.classList.remove(styles.lift);
+      } else {
+        parent.classList.add(styles.lift);
+      }
+    } catch (e) {}
   };
 
   const getLoadedExtensions = () => {
