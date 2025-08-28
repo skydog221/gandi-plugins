@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import styles from "./styles.less";
 import Tooltip from "components/Tooltip";
-
+import { GandiProvider, Button } from "@gandi-ide/gandi-ui";
 import ExtensionManagerIcon from "assets/icon--extension-manager.svg";
 import TrashcanIcon from "assets/icon--trashcan.svg";
 import MultiselectBoxIcon from "assets/icon--multiselect-box.svg";
@@ -30,7 +30,7 @@ const DEFAULT_CONTAINER_INFO = {
   translateY: 60,
 };
 
-const ExtensionManager: React.FC<PluginContext> = ({ intl, utils, vm }) => {
+const ExtensionManager: React.FC<PluginContext> = ({ intl, utils, vm, msg }) => {
   const [visible, setVisible] = React.useState(false);
   const [loadedExtensions, setLoadedExtensions] = React.useState([]);
   const [selectedExtensions, setSelectedExtensions] = React.useState({});
@@ -124,6 +124,10 @@ const ExtensionManager: React.FC<PluginContext> = ({ intl, utils, vm }) => {
     } catch (e) {}
   };
 
+  const updateExtension = (id) => {
+    // TODO:想办法更新拓展
+  };
+
   const getLoadedExtensions = () => {
     const extensions = Array.from(vm.extensionManager._loadedExtensions as Map<string, string>).map(([key, value]) => (
       <div className={[styles.extensionManagerItem, `extensionManager-item-${key}`].join(" ")} key={key}>
@@ -136,6 +140,9 @@ const ExtensionManager: React.FC<PluginContext> = ({ intl, utils, vm }) => {
           <MultiselectBoxIcon />
         </button>
         <span className={styles.extensionManagerItemInfo}>{getExtensionNameById(key)}</span>
+        <Button size="xs" onClick={() => updateExtension(key)}>
+          {msg("plugins.extensionManager.updatedExtension")}
+        </Button>
         <button className={styles.extensionManagerItemDelete} onClick={() => handleDelete(key)}>
           <TrashcanIcon />
         </button>
@@ -153,30 +160,32 @@ const ExtensionManager: React.FC<PluginContext> = ({ intl, utils, vm }) => {
   }, [visible, selectedExtensions]);
 
   return ReactDOM.createPortal(
-    <section className={"extensionManager"} ref={containerRef}>
-      <Tooltip
-        className={styles.extensionManagerTooltip}
-        icon={<ExtensionManagerIcon />}
-        onClick={handleShow}
-        tipText={intl.formatMessage(messages.title)}
-      />
-      {visible &&
-        ReactDOM.createPortal(
-          <ExpansionBox
-            id="extensionManager"
-            title={intl.formatMessage(messages.title)}
-            containerInfo={containerInfo}
-            onClose={handleClose}
-            onSizeChange={handleSizeChange}
-            minWidth={0}
-            minHeight={0}
-            borderRadius={0}
-          >
-            <div className={styles.extensionManagerItemContainer}>{loadedExtensions}</div>
-          </ExpansionBox>,
-          document.body,
-        )}
-    </section>,
+    <GandiProvider>
+      <section className={"extensionManager"} ref={containerRef}>
+        <Tooltip
+          className={styles.extensionManagerTooltip}
+          icon={<ExtensionManagerIcon />}
+          onClick={handleShow}
+          tipText={intl.formatMessage(messages.title)}
+        />
+        {visible &&
+          ReactDOM.createPortal(
+            <ExpansionBox
+              id="extensionManager"
+              title={intl.formatMessage(messages.title)}
+              containerInfo={containerInfo}
+              onClose={handleClose}
+              onSizeChange={handleSizeChange}
+              minWidth={0}
+              minHeight={0}
+              borderRadius={0}
+            >
+              <div className={styles.extensionManagerItemContainer}>{loadedExtensions}</div>
+            </ExpansionBox>,
+            document.body,
+          )}
+      </section>
+    </GandiProvider>,
     document.querySelector(".plugins-wrapper"),
   );
 };

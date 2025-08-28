@@ -207,6 +207,10 @@
   "plugins.customCss.accentColorDesc": "UI element color, applied to buttons, borders, and other interactive elements",
   "plugins.extensionManager.title": "Extension Manager",
   "plugins.extensionManager.intro": "Manage your extensions.",
+
+  "plugins.extensionManager.updatedExtension": "Updated Extension",
+  "plugins.extensionManager.updateAll": "Update All Extensions",
+  "plugins.extensionManager.tip": "Note: After updating the extension, you need to refresh the page to take effect.",
   "plugins.voiceCooperation.title": "Voice Cooperation",
   "plugins.voiceCooperation.description": "Voice cooperate with your team members!",
   "plugins.voiceCooperation.join": "Join Voice",
